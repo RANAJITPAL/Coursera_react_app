@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
+import Menu from "./components/MenuComponents"
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <Navbar dark color='primary'>
         <div className = 'container'>
           <NavbarBrand href="/">
-              Ranajit
+            Resturent
           </NavbarBrand>
+          <Menu/>
         </div>
       </Navbar>
     </div>
