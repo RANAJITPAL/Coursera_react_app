@@ -1,8 +1,8 @@
-import React,{Components} from 'react';
-import {Media} from 'reactstrap';
-class Menu extends Components{
+import React, { Component } from 'react';
+import { Media } from 'reactstrap';
 
-    constructor(props){
+class Menu extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             dishes: [
@@ -42,38 +42,33 @@ class Menu extends Components{
         };
     }
 
-    render(){
-
-        const menu = this.state.dishes.map((dish)=>{
-            return(
-                <div key ={dish.id} className = "col-12 mt-5">
-                    <Media tag ="li">
-                        <Media left meddle>
-                            <Media object src={dish.image} alt={dish.name}/>
-                        </Media>
-                        <Media body className = "ml-5">
-                            <Media heading>{dish.name}</Media>
-                            <p>{dish.description}</p>
-                        </Media>
-                    </Media>
-                </div>
-            )
+    render() {
+        const menu = this.state.dishes.map((dish) => {
+            return (
+              <div key={dish.id} className="col-12 mt-5">
+                <Media tag="li">
+                  <Media left middle>
+                      <Media object src={dish.image} alt={dish.name} />
+                  </Media>
+                  <Media body className="ml-5">
+                    <Media heading>{dish.name}</Media>
+                    <p>{dish.description}</p>
+                  </Media>
+                </Media>
+              </div>
+            );
         });
 
-
-
-        return(
-            <div className = 'container'>
-                <div className = 'row'>
-                    <Media list>
-                        {menu}
-                    </Media>
-                </div>
+        return (
+          <div className="container">
+            <div className="row">
+              <Media list>
+                  {menu}
+              </Media>
             </div>
+          </div>
         );
     }
-
-
 }
 
 export default Menu;

@@ -6,15 +6,13 @@ import Menu from "./components/MenuComponents"
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar dark color='primary'>
         <div className = 'container'>
-          <NavbarBrand href="/">
-            Resturent
-          </NavbarBrand>
-          <Menu/>
+          <NavbarBrand href="/">Resturent</NavbarBrand>
         </div>
       </Navbar>
+      <Menu/>
     </div>
   );
 }
