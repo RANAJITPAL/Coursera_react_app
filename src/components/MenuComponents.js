@@ -1,52 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
   CardTitle } from 'reactstrap';
-import DishDetail from './DishdetailComponent';
 
-class Menu extends Component {
 
-  constructor(props) {
-      super(props);
+//class Menu extends Component {
 
-      this.state = {
-          selectedDish: null
-      }
+  function RenderMenuItem({dish, onClick}){
+    return(
+    <Card key={dish.id} onClick={() => onClick(dish.id)}>
+      <CardImg width="100%" src={dish.image} alt={dish.name} />
+      <CardImgOverlay>
+        <CardTitle>{dish.name}</CardTitle>
+      </CardImgOverlay>
+    </Card>
+    );
   }
 
-  onDishSelect(dish) {
-      this.setState({ selectedDish: dish});
-  }
-
-  
-
-  render() {
-      const menu = this.props.dishes.map((dish) => {
-          return (
-            <div  className="col-12 col-md-5 m-1">
-              <Card key={dish.id}
-                onClick={() => this.props.onClick(dish.id)}>
-                <CardImg width="100%" src={dish.image} alt={dish.name} />
-                <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
-                </CardImgOverlay>
-              </Card>
-            </div>
-          );
-      });
-
+  const Menu =(props)=>{
+    const menu = props.dishes.map((dish) => {
       return (
-          <div className="container">
-              <div className="row">
-                  {menu}
-              </div>
-              <div className="row">
-                <div  className="col-12 col-md-5 m-1">
-                 <DishDetail dish = {this.state.selectedDish}/>
-                </div>
-              </div>
-          </div>
+        <div  className="col-12 col-md-5 m-1">
+          <RenderMenuItem dish = {dish} onClick ={props.onClick}/>
+        </div>
       );
-  }
+  });
+
+  return (
+      <div className="container">
+          <div className="row">
+              {menu}
+          </div>
+      </div>
+  );
+    
 }
 
 export default Menu;
