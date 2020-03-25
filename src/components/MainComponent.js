@@ -13,10 +13,10 @@ import {connect} from "react-redux";
 
 const mapStateToProps = state =>{
   return{
-    dishes: this.dishes,
-    comments: this.comments,
-    promotions: this.promotions,
-    leaders :this.leaders
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders :state.leaders
   }
 } 
 
@@ -26,12 +26,12 @@ class Main extends Component{
   {
     super(props);
 
-    this.state = {
-      dishes:DISHES,
-      comments:COMMENTS,
-      leaders:LEADERS,
-      promotions:PROMOTIONS
-    };
+    // this.state = {
+    //   dishes:DISHES,
+    //   comments:COMMENTS,
+    //   leaders:LEADERS,
+    //   promotions:PROMOTIONS
+    // };
   }
 
 
