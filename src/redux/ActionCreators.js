@@ -134,11 +134,7 @@ export const fetchPromos = () => (dispatch) => {
     .then(response => response.json())
     .then(promos => dispatch(addPromos(promos)))
     .catch(error => dispatch(promosFailed(error.message)));
-<<<<<<< HEAD
 }
-=======
-};
->>>>>>> server_fetch_test
 
 export const promosLoading = () => ({
     type: ActionTypes.PROMOS_LOADING
