@@ -10,7 +10,7 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 const required = (val) => val && val.length;
     
-    function RenderComments({comments, addComment, dishId  }) {
+    function RenderComments({comments, postComment, dishId  }) {
         if (comments == null) {
             return (<div></div>)
         }
@@ -43,7 +43,7 @@ const required = (val) => val && val.length;
                 <ul className='list-unstyled'>
                     {cmnts}
                 </ul>
-                <CommentForm dishId = {dishId} addComment = {addComment}/>
+                <CommentForm dishId = {dishId} postComment = {postComment}/>
             </div>
         )
     }
@@ -88,7 +88,7 @@ export class CommentForm extends Component{
         this.toggleModal();
         // console.log('Current State is: ' + JSON.stringify(values));
         // alert('Current State is: ' + JSON.stringify(values));
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
       }
 
     render(){
@@ -197,7 +197,7 @@ const DishDetail = (props)=>
                     <div className='row'>
                         <RenderDish dish ={props.dish}/>
                         <RenderComments comments ={props.comments}
-                            addComment = {props.addComment}
+                            postComment = {props.postComment}
                             dishId = {props.dish.id}/>
                     </div>
                     <div className ='row'>

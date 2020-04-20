@@ -20,9 +20,13 @@ function RenderCard({item,isLoading,errMess})
     else 
         return(
             <Card>
+<<<<<<< HEAD
                 
                 <CardImg src={baseUrl + item.image} alt={item.name} />
                 {/* <CardImg src={'http://localhost:3001/images/alberto.png'} alt={item.name} /> */}
+=======
+                <CardImg src={baseUrl + item.image} alt={item.name} />
+>>>>>>> server_fetch_test
                 <CardBody>
                     <CardTitle>{item.name}</CardTitle>
                     {item.designation? <CardSubtitle>{item.designation}</CardSubtitle>:null}
@@ -45,8 +49,13 @@ function Home(props)
                 </div>
                 <div className = "col-12 col-md m-1">
                     <RenderCard item={props.promotion} 
+<<<<<<< HEAD
                                 isLoading={props.promosLoading} 
                                 errMess={props.promosErrMess} />
+=======
+                                isLoading={props.promoLoading} 
+                                errMess={props.promoErrMess} />
+>>>>>>> server_fetch_test
                 </div>
                 <div className = "col-12 col-md m-1">
                     <RenderCard item = {props.leader}/>
