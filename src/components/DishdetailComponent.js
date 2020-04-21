@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { Loading } from './LoadingComponent';     
 import {Control, LocalForm,Errors} from 'react-redux-form';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -19,29 +20,32 @@ const required = (val) => val && val.length;
         }
         const cmnts = comments.map(comment => {
             return (
+                <Fade in>
                 <div>
-                    <ul>
-                        <li key={comment.id}>
-                            <p>{comment.comment}</p>
-                            <p>-- {comment.author},
-                            &nbsp;
-                            {new Intl.DateTimeFormat('en-US', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: '2-digit'
-                                }).format(new Date(comment.date))}
-                            </p>
-                        </li>
-                    </ul>
-                    
+                        <ul>
+                            <li key={comment.id}>
+                                <p>{comment.comment}</p>
+                                <p>-- {comment.author},
+                                &nbsp;
+                                {new Intl.DateTimeFormat('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: '2-digit'
+                                    }).format(new Date(comment.date))}
+                                </p>
+                            </li>
+                        </ul>
                 </div>
+                </Fade>
             )
         })
         return (
             <div className='col-12 col-md-5 m-1'>
                 <h4> Comments </h4>
                 <ul className='list-unstyled'>
+                    <Stagger in>
                     {cmnts}
+                    </Stagger>
                 </ul>
                 <CommentForm dishId = {dishId} postComment = {postComment}/>
             </div>
@@ -51,13 +55,19 @@ const required = (val) => val && val.length;
    function RenderDish({dish}) {
         if (dish != null)
             return(
-                <Card>
-                    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                    <CardBody>
-                      <CardTitle>{dish.name}</CardTitle>
-                      <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+                 <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                    <Card>
+                        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+                        <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                        </CardBody>
+                    </Card>
+                </FadeTransform>
             );
         else
             return(
