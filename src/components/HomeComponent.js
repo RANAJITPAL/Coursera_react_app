@@ -7,7 +7,6 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function RenderCard({item,isLoading,errMess})
 {
-    
     if (isLoading) {
         return(
                 <Loading />
@@ -43,10 +42,9 @@ function Home(props)
         <div className = "Container">
             <div className = "row align-item-start">
                 <div className = "col-12 col-md m-1">
-                
                 <RenderCard item={props.dish} 
                             isLoading={props.dishesLoading} 
-                            errMess={props.dishesErrMess}  />
+                            errMess={props.disheErrMess}  />
                 </div>
                 <div className = "col-12 col-md m-1">
                     <RenderCard item={props.promotion} 
@@ -55,7 +53,9 @@ function Home(props)
 
                 </div>
                 <div className = "col-12 col-md m-1">
-                    <RenderCard item = {props.leader}/>
+                    <RenderCard item = {props.leader}
+                                isLoading={props.leadersLoading} 
+                                errMess={props.leaderErrMess}/>
                 </div>
             </div>
         </div>
