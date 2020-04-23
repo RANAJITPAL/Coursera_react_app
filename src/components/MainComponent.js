@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, NavbarBrand} from 'reactstrap';
+// import {Navbar, NavbarBrand} from 'reactstrap';
 import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -36,10 +36,10 @@ const mapDispatchToProps = dispatch => ({
 
 class Main extends Component{
 
-  constructor(props)
-  {
-    super(props);
-  }
+  // constructor(props)
+  // {
+  //   super(props);
+  // }
 
   componentDidMount() {
     this.props.fetchDishes();
@@ -80,11 +80,11 @@ class Main extends Component{
       );
     };
     
-      const AboutUs = () =>{
-        return(
-          <About leaders ={this.props.leaders.leaders}/>
-        );
-      }
+      // const AboutUs = () =>{
+      //   return(
+      //     <About leaders ={this.props.leaders.leaders}/>
+      //   );
+      // }
 
       
 
